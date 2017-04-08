@@ -54,6 +54,7 @@ def print_indices(items):
         3 Volvo
 
     """
+    #iterte through the list and print the index and the item
     for i in range(len(items)):
         print i, items[i]
 
@@ -93,7 +94,27 @@ def foods_in_common(foods1, foods2):
 
     """
 
-    return ['the wrong thing']
+    #convert both lists to sets so I can use set math
+    foods1_as_set = set(foods1)
+    foods2_as_set = set(foods2)
+
+    #create a set to hold the result
+    items_in_common_set = set()
+
+    #identify the items in common using set math
+    items_in_common_set = (foods1_as_set & foods2_as_set)
+
+    # #create list to hold the output
+    items_in_common_list = []
+
+    #turn result set into a list for output;
+    items_in_common_list = list(items_in_common_set)
+
+    #alphabetize the list
+    items_in_common_list.sort()
+
+    #return the list sorted alphabetically
+    return items_in_common_list
 
 
 def every_other_item(items):
