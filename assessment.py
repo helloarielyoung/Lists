@@ -16,17 +16,29 @@ def all_odd(numbers):
         >>> all_odd([2, -6, 8])
         []
     """
-    #create my final list to hold the output
-    odd_list =[]
 
-    #iterate through the list and append the odd ones to my list
-    for number in numbers:
-        if number % 2 == 0:
-            continue
-        else:
-            odd_list.append(number)
+    # if numbers contains strings, handle the TypeError using try/except
+    try:
+        #create my final list to hold the output
+        odd_list = []
 
-    return odd_list
+        # Here is the first way I did it (successfully):
+        # iterate through the list and append the odd ones to my list
+        # for number in numbers:
+        #     if number % 2 == 0:
+        #         continue
+        #     else:
+        #         odd_list.append(number)
+
+        #same thing but done as list comprehension
+        #iterate through the list and append the odd ones to my list
+        odd_list = [number for number in numbers if number % 2 != 0]
+
+    #handle exception if there are strings in list
+    except TypeError:
+        print "integers only allowed with this function"
+    else:
+        return odd_list
 
 
 def print_indices(items):
