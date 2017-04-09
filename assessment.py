@@ -188,15 +188,33 @@ def largest_n_items(items, n):
     if int(n) == 0:
         return largest_integers
 
-    #sort the incoming list to put in order of smallest to largest
+    #instructions do say "n largest INTEGERS" so if items contains text,
+    #I should remove them...
+
+    #take out non-numbers
+    for item in items:
+        try:
+            int(item)
+        except ValueError:
+            items.remove(item)
+
+    #If I wanted to really enforce the integers, I could truncate any decimals
+    #in the list:
+    #all_integers = []
+    #for item in items:
+    #   all_integers.append(int(item))
+    #
+    #and then use all_integers as my list in the rest of the code instead of items
+
+    #Now, to find the largest integers left in the list
+    #sort the incoming list (in place, btw) to put in order of smallest to largest
     items.sort()
 
-    #print items
     #take a slice of the list from the right appending 'n' largest
     #to my list
     largest_integers = items[:-int(n)-1:-1]
 
-    #sort the list
+    #sort the list to return them in ascending order
     largest_integers.sort()
 
     return largest_integers
