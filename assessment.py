@@ -104,13 +104,13 @@ def foods_in_common(foods1, foods2):
     #identify the items in common using set math
     items_in_common_set = (foods1_as_set & foods2_as_set)
 
-    # #create list to hold the output
+    # # #create list to hold the output
     items_in_common_list = []
 
-    #turn result set into a list for output;
+    # #turn result set into a list for output;
     items_in_common_list = list(items_in_common_set)
 
-    #alphabetize the list
+    # #alphabetize the list
     items_in_common_list.sort()
 
     #return the list sorted alphabetically
@@ -134,7 +134,14 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return ['the wrong thing']
+    #create a blank list for my final output
+    every_other_list = []
+
+    for i in range(len(items)):
+        if i % 2 == 0:
+            every_other_list.append(items[i])
+
+    return every_other_list
 
 
 def largest_n_items(items, n):
