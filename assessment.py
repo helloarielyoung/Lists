@@ -150,10 +150,12 @@ def every_other_item(items):
     every_other_list = []
 
     #iterate through the list by index and take the even ones
-    for i in range(len(items)):
-        if i % 2 == 0:
-            every_other_list.append(items[i])
+    # for i in range(len(items)):
+    #     if i % 2 == 0:
+    #         every_other_list.append(items[i])
 
+    #same thing, but using list comprehension
+    every_other_list = [items[i] for i in range(len(items)) if i % 2 == 0]
     return every_other_list
 
 
