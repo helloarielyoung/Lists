@@ -137,6 +137,7 @@ def every_other_item(items):
     #create a blank list for my final output
     every_other_list = []
 
+    #iterate through the list by index and take the even ones
     for i in range(len(items)):
         if i % 2 == 0:
             every_other_list.append(items[i])
@@ -166,7 +167,25 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    #create list to hold my final output
+    largest_integers = []
+
+    #quit and return empty list if n = 0
+    if int(n) == 0:
+        return largest_integers
+
+    #sort the incoming list to put in order of smallest to largest
+    items.sort()
+
+    #print items
+    #take a slice of the list from the right appending 'n' largest
+    #to my list
+    largest_integers = items[:-int(n)-1:-1]
+
+    #sort the list
+    largest_integers.sort()
+
+    return largest_integers
 
 
 #####################################################################
